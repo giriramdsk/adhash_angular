@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CarSelectorService } from '../../service/car-selector.service';
 import { Car } from '../model/car.interface';
 import { TrimEngine } from '../model/trim-engine.interface';
-
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../../notification.service'
 @Component({
   selector: 'app-car-selector',
   templateUrl: './car-selector.component.html',
@@ -24,7 +25,7 @@ export class CarSelectorComponent implements OnInit {
   makeModelYearTrims: any[] = [];
   showPopup: any;
   popupData: any[] = [];
-  constructor(private carSelectorService: CarSelectorService) {}
+  constructor(private carSelectorService: CarSelectorService,private notifyService : NotificationService) {}
 
   ngOnInit(): void {
     this.getMakes();
@@ -75,23 +76,28 @@ export class CarSelectorComponent implements OnInit {
     );
   }
   showModal() {
-    this.showPopup = true;
-    this.popupData = this.trimEngines
-      .filter((item) =>
-        item.value.some((val) => this.selectedTrims.includes(val.id))
-      )
-      .flatMap((item) =>
-        item.value
-          .filter((val) => this.selectedTrims.includes(val.id))
-          .map((val) => ({
-            id: val.id,
-            trim: val.trim,
-            engine: val.engine,
-            make: item.make,
-            model: item.model,
-            year: item.year,
-          }))
-      );
+    if(this.selectedTrims.length){
+        this.showPopup = true;
+        this.popupData = this.trimEngines
+          .filter((item) =>
+            item.value.some((val) => this.selectedTrims.includes(val.id))
+          )
+          .flatMap((item) =>
+            item.value
+              .filter((val) => this.selectedTrims.includes(val.id))
+              .map((val) => ({
+                id: val.id,
+                trim: val.trim,
+                engine: val.engine,
+                make: item.make,
+                model: item.model,
+                year: item.year,
+              }))
+          );
+    }else{
+        this.notifyService.showWarning("This is warning", "Select Atleaset one Value")
+    }
+   
   }
 
   onMakeSelectionChange() {

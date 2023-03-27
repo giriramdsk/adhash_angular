@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { CarSelectorComponent } from './component/car-selector/car-selector.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { NgSelectModule } from '@ng-select/ng-select';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgSelectModule
+    NgSelectModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
