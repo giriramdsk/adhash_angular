@@ -1,0 +1,283 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* You can add global styles to this file, and also import other style files */
+.modal-body {
+  overflow-y: auto;
+  height: 300px;
+}
+.dropdown-container {
+  width: 200px; /* set the desired width here */
+}
+.car-selector-container-top {
+  .form-inline {
+    display: flex;
+    justify-content: space-between;
+    .form-group {
+      label {
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      flex: 1;
+      margin: 0 2rem;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .dropdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+  }
+
+  .car-list-container {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        font-weight: bold;
+        background-color: #f2f2f2;
+      }
+
+      td:first-child {
+        width: 10%;
+      }
+
+      td:nth-child(2) {
+        width: 40%;
+      }
+
+      td:nth-child(3) {
+        width: 50%;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      /* selected cars table heading styles */
+      .selected-cars-heading {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* parent-child checkbox styles */
+      .parent-checkbox {
+        margin-left: 20px;
+      }
+
+      .child-checkbox {
+        margin-left: 40px;
+      }
+
+      /* overall checkbox styles */
+      .overall-checkbox {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .preview-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0062cc;
+    }
+  }
+}
+.car-selector-container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  padding: 20px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .dropdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+
+    select {
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+  }
+
+  .car-list-container {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        font-weight: bold;
+        background-color: #f2f2f2;
+      }
+
+      td:first-child {
+        width: 10%;
+      }
+
+      td:nth-child(2) {
+        width: 40%;
+      }
+
+      td:nth-child(3) {
+        width: 50%;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      /* selected cars table heading styles */
+      .selected-cars-heading {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      /* parent-child checkbox styles */
+      .parent-checkbox {
+        margin-left: 20px;
+      }
+
+      .child-checkbox {
+        margin-left: 40px;
+      }
+
+      /* overall checkbox styles */
+      .overall-checkbox {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .preview-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0062cc;
+    }
+  }
+}
+
+:host ::ng-deep .ng-clear-wrapper {
+  display: none;
+}
+
+/* Styles for dropdowns */
+.dropdown-container {
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  .ng-select {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    .ng-select-container {
+      .ng-value-container {
+        padding: 5px 10px;
+      }
+      .ng-placeholder {
+        color: #aaa;
+      }
+      .ng-arrow-wrapper {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        .ng-arrow-down {
+          border-color: #333 transparent transparent;
+        }
+      }
+      .ng-dropdown-panel {
+        width: 100%;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: none;
+        .ng-dropdown-panel-items {
+          max-height: 200px;
+          overflow-y: auto;
+        }
+        .ng-option {
+          padding: 5px 10px;
+          cursor: pointer;
+          &:hover {
+            background-color: #f1f1f1;
+          }
+          &.selected {
+            background-color: #f1f1f1;
+          }
+        }
+      }
+    }
+  }
+}
